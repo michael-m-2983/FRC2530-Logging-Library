@@ -57,6 +57,11 @@ public class DefaultFRCLogger implements FRCLogger {
         this.loggingDir = loggingDir;
     }
 
+    /**
+     * Sets up the logger
+     * 
+     * @throws IllegalStateException if no output
+     */
     @Override
     public void setup() {
         if (logToFile) {
