@@ -25,6 +25,14 @@ public interface FRCLogger {
     void info(String s, Object... objects);
 
     /**
+     * Logs a formatted string if the condition is met.
+     * @param condition The condition
+     * @param s The format string
+     * @param objects objects
+     */
+    void infoIf(boolean condition, String s, Object... objects);
+
+    /**
      * Logs a formatted string as a warning
      * 
      * @see String.format(String, Object...)
@@ -33,6 +41,15 @@ public interface FRCLogger {
      * @param objects Objects
      */
     void warn(String s, Object... objects);
+
+
+    /**
+     * Logs a formatted string as a warning if the condition is met.
+     * @param condition The condition
+     * @param s The format string
+     * @param objects objects
+     */
+    void warnIf(boolean condition, String s, Object... objects);
 
     /**
      * Logs a formatted string as an error
@@ -44,6 +61,15 @@ public interface FRCLogger {
      * @param objects Objects
      */
     void error(String s, Object... objects);
+
+
+    /**
+     * Logs a formatted string as an error if the condition is met.
+     * @param condition The condition
+     * @param s The format string
+     * @param objects objects
+     */
+    void errorIf(boolean condition, String s, Object... objects);
 
     /**
      * Logs an exception

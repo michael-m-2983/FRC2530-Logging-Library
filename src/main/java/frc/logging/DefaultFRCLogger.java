@@ -96,6 +96,13 @@ public class DefaultFRCLogger implements FRCLogger {
     }
 
     @Override
+    public void infoIf(boolean condition, String s, Object... objects) {
+        if(condition) {
+            this.info(s, objects);
+        }
+    }
+
+    @Override
     public void warn(String s, Object... objects) {
         String formattedString = prefix + String.format(s, objects);
 
@@ -104,6 +111,13 @@ public class DefaultFRCLogger implements FRCLogger {
         }
         if (logToFile) {
             writelnToFile(formattedString);
+        }
+    }
+
+    @Override
+    public void warnIf(boolean condition, String s, Object... objects) {
+        if(condition) {
+            this.warn(s, objects);
         }
     }
 
@@ -127,6 +141,13 @@ public class DefaultFRCLogger implements FRCLogger {
         this.error(error.getMessage());
     }
 
+    @Override
+    public void errorIf(boolean condition, String s, Object... objects) {
+        if(condition) {
+            this.error(s, objects);
+        }
+    }
+
     /**
      * Writes a line to a file.
      * 
@@ -142,5 +163,4 @@ public class DefaultFRCLogger implements FRCLogger {
             e.printStackTrace();
         }
     }
-
 }

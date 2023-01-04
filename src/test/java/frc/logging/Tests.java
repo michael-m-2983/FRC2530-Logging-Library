@@ -13,7 +13,15 @@ public class Tests {
             logger.setup();
 
             assertTrue(false);
+
         } catch(IllegalStateException exception) {
         }
+    }
+
+    @Test
+    public void test() {
+        FRCLogger logger = new DefaultFRCLogger("[Test] ", false, true);
+        logger.info("Hello world");
+        logger.infoIf(logger != null, "Hello world 2");
     }
 }
